@@ -1,0 +1,28 @@
+# Disability Requirements II: Functional Capacity 
+# Communication Questionnaire 
+# Still need to edit
+---
+question: Please tick all that apply. 
+subquestion: |
+  This section of the questionnaire will ask you about your communication skills.
+fields:
+  - I usually or always...: user_communication
+    datatype: checkboxes
+    choices:
+      - Have difficulty expressing what I need or want by gesture or speech
+      - Need help from someone else to talk to other people for me
+      - Have trouble understanding what other people are saying to me
+      - Have trouble getting my point across to people
+---
+code: |
+  if user_communication:
+    user_communication = True
+  else:
+    user_communciation = False
+---
+code: |
+  if user_communication.any_true():
+    user_communication_checkboxes = True
+  else:
+    user_communication_checkboxes = False
+---

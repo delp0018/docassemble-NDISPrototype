@@ -1,0 +1,69 @@
+# Main file for NDIS Advisor Application
+---
+include:
+ - intro.yml
+ - intro2.yml
+ - appusage.yml
+ - endpoint_asd.yml
+ - agereq.yml
+ - endpoint_age.yml
+ - residencyreq.yml
+ - endpoint_residency.yml
+ - disabilityreq1.yml
+---
+objects: 
+ - endpoint: DADict
+---
+# Metadata about the app.  Wont be displeyed, only for record
+metadata:
+  title: |
+    CBS Inc NDIS Advisor
+  authors:
+    - name: Corina Catsiavas
+    - name: Nicole Catabran
+    - name: Gale del Pilar
+    - name: Samara Shute
+  organisation:  Flinders University
+---
+# Introduction Screen + Disclaimer
+mandatory: True
+question: Welcome to our NDIS Advisor!
+subquestion: |
+  The purpose of this application is to decide whether you are likely eligible for the National Disability Insurance Scheme (NDIS) and to give you tips for the next steps in applying.
+  
+  **This application currently only applies for people with Autism Sprectrum Disorder (ASD).**
+  
+  
+  *Disclaimer*
+  
+  This application is **not** legal advice. 
+  
+  This application does not guarantee you will receive funding for NDIS, nor does it guarantee ineligibility. 
+  
+  This application also does not provide comprehensive information on the NDIS. It will simply assist in assessing whether you are likely to be eligible, and give you some tips on the next steps.
+  
+  **The National Disability Insurance Agency (NDIA) reserves the right to make any final decisions.**
+ 
+ 
+  We advise you to have a support person while filling out the questions. If you are under 16, you must have a parent or caregiver present while filling out the questions. 
+ 
+  Please answer all questions honestly and as accurately as possible.
+ 
+  By clicking **CONTINUE**, you accept these terms.
+  
+buttons:
+  - CONTINUE: continue
+  - EXIT: exit
+    url: https://www.ndis.gov.au/applying-access-ndis/am-i-eligible
+---
+# Mandatory code block that drives the interview
+mandatory: True
+code: |
+  if ( user_canuse == False ):
+    endpoint['austismcondition']
+  elif ( user_age_ok == False ):
+    endpoint['ineligibleduetoage']
+  elif ( user_residency == False ):
+    endpoint['ineligibleduetoresidency']
+---
+
