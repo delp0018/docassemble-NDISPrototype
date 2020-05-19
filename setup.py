@@ -45,7 +45,7 @@ def find_package_data(where='.', package='', exclude=standard_exclude, exclude_d
 setup(name='docassemble.NDISPrototype',
       version='0.0.1',
       description=('NDIS Advisor Prototype'),
-      long_description='# docassemble.NDISPrototype\n\nNDIS Advisor Prototype\n\n## Author\n\nGale Del Pilar, delp0018@flinders.edu.au\n\n',
+      long_description='# docassemble.NDISPrototype\r\n\r\nNDIS Advisor Prototype\r\n\r\n## Author\r\n\r\nGale Del Pilar, delp0018@flinders.edu.au\r\n\r\n',
       long_description_content_type='text/markdown',
       author='Gale Del Pilar',
       author_email='delp0018@flinders.edu.au',
